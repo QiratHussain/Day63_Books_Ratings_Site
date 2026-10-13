@@ -9,8 +9,12 @@ all_books = []
 def home():
     return render_template("index.html")
 
-@app.route("/add")
+@app.route("/add", methods= ['POST','GET'])
 def add():
+    if request.method=='POST':
+        new_book= {'Title':request.form['title'], 'Author':request.form['author'], 'Rating':request.form['rating']}
+        all_books.append(new_book)
+        return  render_template("index.html", books_list= all_books)
     return render_template("add.html")
 
 
