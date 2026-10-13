@@ -1,8 +1,16 @@
 from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy import Integer, String, Float
 
 app = Flask(__name__)
+class Base(DeclarativeBase):
+    pass
 
-all_books = []
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///library.db"
+db = SQLAlchemy(model_class=Base)
+db.init_app(app)
 
 
 @app.route('/')
