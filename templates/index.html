@@ -11,7 +11,7 @@
     {% else: %}
     {% for book in books_list: %}
     <ul>
-      <li>{{book['Title']}}:{{book['Author']}}:{{book['Rating']}} -<a>Edit Rating</a>-<a>Delete</a></li>
+      <li>{{book['title']}}:{{book['author']}}:{{book['rating']}} -<a>Edit Rating</a>-<a>Delete</a></li>
     </ul>
     {% endfor %}
     {% endif %}
